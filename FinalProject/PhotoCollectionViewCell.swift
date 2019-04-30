@@ -7,7 +7,9 @@
 //
 
 import UIKit
+
 class PhotoCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var spinner: UIActivityIndicatorView!
     
@@ -23,12 +25,13 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         update(with: nil)
     }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
+        
         update(with: nil)
     }
 }
-
-
