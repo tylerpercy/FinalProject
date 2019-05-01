@@ -100,10 +100,10 @@ extension TagsViewController {
         
         if let index = selectedIndexPaths.index(of: indexPath) {
             selectedIndexPaths.remove(at: index)
-            //photo.removeFromTags(tag)
+            photo.removeFromTags(tag)
         } else {
             selectedIndexPaths.append(indexPath)
-            //photo.addToTags(tag)
+            photo.addToTags(tag)
         }
         
         do {
