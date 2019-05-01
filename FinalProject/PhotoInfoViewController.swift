@@ -8,7 +8,7 @@
 
 import UIKit
 class PhotoInfoViewController: UIViewController {
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
     
     var photo: Photo! {
         didSet {
@@ -25,13 +25,13 @@ class PhotoInfoViewController: UIViewController {
             tagController.store = store
             tagController.photo = photo
         default:
-            preconditionFailure("Unexpected segue identifier.")
+            preconditionFailure("Unexpected segue identifier")
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        store.fetchImage(for: photo) { (result) -> Void in
+        store.fetchImage(for: photo) { (result) in
             switch result {
             case let .success(image):
                 self.imageView.image = image
@@ -39,5 +39,8 @@ class PhotoInfoViewController: UIViewController {
                 print("Error fetching image for photo: \(error)")
             }
         }
+        
+        
+        store.saveIfNeeded()
     }
 }

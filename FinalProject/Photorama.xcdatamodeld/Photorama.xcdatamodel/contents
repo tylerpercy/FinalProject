@@ -5,7 +5,7 @@
         <attribute name="photoID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="remoteURL" optional="YES" attributeType="Transformable" customClassName="NSURL" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="tags" maxCount="1" deletionRule="Nullify" destinationEntity="Tag" inverseName="photos" inverseEntity="Tag" syncable="YES"/>
+        <relationship name="tags" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="photos" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>

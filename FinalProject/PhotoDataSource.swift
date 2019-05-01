@@ -8,6 +8,7 @@
 
 import UIKit
 class PhotoDataSource: NSObject, UICollectionViewDataSource {
+    
     var photos = [Photo]()
     
     func collectionView(_ collectionView: UICollectionView,
@@ -19,11 +20,8 @@ class PhotoDataSource: NSObject, UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let identifier = "PhotoCollectionViewCell"
         let cell =
-            collectionView.dequeueReusableCell(withReuseIdentifier: identifier,
-                                               for: indexPath) as! PhotoCollectionViewCell
-        return cell
+            collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
         
+        return cell
     }
-    
 }
-
