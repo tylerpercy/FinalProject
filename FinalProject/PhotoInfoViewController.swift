@@ -17,6 +17,18 @@ class PhotoInfoViewController: UIViewController {
     }
     var store: PhotoStore!
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "showTags"?:
+            let navController = segue.destination as! UINavigationController
+            let tagController = navController.topViewController as! TagsViewController
+            tagController.store = store
+            tagController.photo = photo
+        default:
+            preconditionFailure("Unexpected segue identifier.")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         store.fetchImage(for: photo) { (result) -> Void in
@@ -27,6 +39,5 @@ class PhotoInfoViewController: UIViewController {
                 print("Error fetching image for photo: \(error)")
             }
         }
-        
     }
 }
