@@ -118,6 +118,7 @@ class PhotoStore {
         
         let task = session.dataTask(with: request) { (data, response, error) in
             
+            //Chapter 20 Bronze
             if let response = response as? HTTPURLResponse {
                 print("Status Code: \(response.statusCode)")
                 

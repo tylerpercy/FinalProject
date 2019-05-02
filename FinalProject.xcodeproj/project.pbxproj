@@ -18,11 +18,11 @@
 		7A2F3E902279FAE000F04606 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F3E8F2279FAE000F04606 /* TagsViewController.swift */; };
 		7A2F3E922279FB5600F04606 /* TagDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2F3E912279FB5600F04606 /* TagDataSource.swift */; };
 		7A612EDB227A0BB300559C7B /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A612ED9227A0BB300559C7B /* Photo+CoreDataClass.swift */; };
-		7A612EDC227A0BB300559C7B /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A612EDA227A0BB300559C7B /* Photo+CoreDataProperties.swift */; };
 		7AA3224D227760A9004D750B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA3224C227760A9004D750B /* AppDelegate.swift */; };
 		7AA32252227760A9004D750B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA32250227760A9004D750B /* Main.storyboard */; };
 		7AA32257227760A9004D750B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AA32256227760A9004D750B /* Assets.xcassets */; };
 		7AA3225A227760A9004D750B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA32258227760A9004D750B /* LaunchScreen.storyboard */; };
+		7AAAB8FD227B51C900454CE5 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAB8FC227B51C900454CE5 /* Photo+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,13 +37,13 @@
 		7A2F3E8F2279FAE000F04606 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
 		7A2F3E912279FB5600F04606 /* TagDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDataSource.swift; sourceTree = "<group>"; };
 		7A612ED9227A0BB300559C7B /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7A612EDA227A0BB300559C7B /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7AA32249227760A9004D750B /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AA3224C227760A9004D750B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AA32251227760A9004D750B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7AA32256227760A9004D750B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7AA32259227760A9004D750B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7AA3225B227760A9004D750B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AAAB8FC227B51C900454CE5 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +60,8 @@
 		7AA32240227760A8004D750B = {
 			isa = PBXGroup;
 			children = (
+				7AAAB8FC227B51C900454CE5 /* Photo+CoreDataProperties.swift */,
 				7A612ED9227A0BB300559C7B /* Photo+CoreDataClass.swift */,
-				7A612EDA227A0BB300559C7B /* Photo+CoreDataProperties.swift */,
 				7AA3224B227760A9004D750B /* FinalProject */,
 				7AA3224A227760A9004D750B /* Products */,
 			);
@@ -170,7 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6699927D227903F300269E44 /* PhotoInfoViewController.swift in Sources */,
-				7A612EDC227A0BB300559C7B /* Photo+CoreDataProperties.swift in Sources */,
+				7AAAB8FD227B51C900454CE5 /* Photo+CoreDataProperties.swift in Sources */,
 				66E091122278FCAD00D2FFF6 /* PhotoCollectionViewCell.swift in Sources */,
 				66E091102278FB8000D2FFF6 /* PhotoDataSource.swift in Sources */,
 				66124C8722776972000F560C /* PhotoStore.swift in Sources */,

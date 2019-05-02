@@ -8,7 +8,9 @@
 
 import UIKit
 class PhotoInfoViewController: UIViewController {
+    
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var viewLabel: UILabel!
     
     var photo: Photo! {
         didSet {
@@ -39,8 +41,7 @@ class PhotoInfoViewController: UIViewController {
                 print("Error fetching image for photo: \(error)")
             }
         }
-        
-        
+        viewLabel.text = "Views: \(photo.views)"
         store.saveIfNeeded()
     }
 }

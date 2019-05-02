@@ -46,6 +46,7 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
                 let destinationVC = segue.destination as! PhotoInfoViewController
                 destinationVC.photo = photo
                 destinationVC.store = store
+                photo.views += 1
             }
         default:
             preconditionFailure("Unexpected segue identifier.")

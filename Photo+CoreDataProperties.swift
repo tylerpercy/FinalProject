@@ -2,7 +2,7 @@
 //  Photo+CoreDataProperties.swift
 //  FinalProject
 //
-//  Created by Tyler Percy on 5/1/19.
+//  Created by Tyler Percy on 5/2/19.
 //  Copyright © 2019 Tyler Percy. All rights reserved.
 //
 //
@@ -21,6 +21,7 @@ extension Photo {
     @NSManaged public var photoID: String?
     @NSManaged public var remoteURL: NSURL?
     @NSManaged public var title: String?
+    @NSManaged public var views: Int64
     @NSManaged public var tags: NSSet?
 
 }
