@@ -71,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-858" y="-10"/>
+            <point key="canvasLocation" x="-858.39999999999998" y="-10.344827586206897"/>
         </scene>
         <!--Photo Info View Controller-->
         <scene sceneID="uvR-8a-7aK">
@@ -84,39 +84,49 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VEH-Pv-9ZM">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="csN-Zc-bgV">
-                                <rect key="frame" x="0.0" y="624" width="375" height="43"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="csN-Zc-bgV">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem title="Tags" id="Fcr-Er-gP6">
                                         <connections>
                                             <segue destination="bsc-r6-ulj" kind="presentation" identifier="showTags" id="B13-Pb-KXa"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" id="wIO-w9-MiJ">
+                                        <button key="customView" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HhU-km-QSj">
+                                            <rect key="frame" x="63.5" y="6" width="48" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <state key="normal" title="Views:">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                        </button>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Views: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hr2-pH-UFT">
-                                <rect key="frame" x="279" y="635" width="80" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="VEH-Pv-9ZM" secondAttribute="trailing" id="1Fs-ck-qHj"/>
-                            <constraint firstItem="hr2-pH-UFT" firstAttribute="bottom" secondItem="VEH-Pv-9ZM" secondAttribute="bottom" constant="-11" id="2aW-Hn-gfn"/>
+                            <constraint firstItem="VEH-Pv-9ZM" firstAttribute="trailing" secondItem="Y6S-HE-tUI" secondAttribute="trailing" id="1qZ-gd-1NS"/>
+                            <constraint firstItem="VEH-Pv-9ZM" firstAttribute="leading" secondItem="Y6S-HE-tUI" secondAttribute="leading" id="2Bo-Ok-juf"/>
+                            <constraint firstItem="csN-Zc-bgV" firstAttribute="leading" secondItem="VEH-Pv-9ZM" secondAttribute="leading" id="4h9-Ig-IHM"/>
                             <constraint firstItem="VEH-Pv-9ZM" firstAttribute="bottom" secondItem="Y6S-HE-tUI" secondAttribute="bottom" id="4hg-N6-n1E"/>
-                            <constraint firstItem="hr2-pH-UFT" firstAttribute="trailing" secondItem="PV6-Wm-ecb" secondAttribute="trailingMargin" id="5nd-F1-Jmw"/>
+                            <constraint firstItem="csN-Zc-bgV" firstAttribute="leading" secondItem="Y6S-HE-tUI" secondAttribute="leading" id="5qi-pZ-LNp"/>
                             <constraint firstItem="VEH-Pv-9ZM" firstAttribute="leading" secondItem="PV6-Wm-ecb" secondAttribute="leading" id="9LG-vg-fzG"/>
-                            <constraint firstItem="hr2-pH-UFT" firstAttribute="leading" secondItem="Y6S-HE-tUI" secondAttribute="leading" constant="279" id="HXB-3x-LpJ"/>
-                            <constraint firstItem="hr2-pH-UFT" firstAttribute="bottom" secondItem="csN-Zc-bgV" secondAttribute="bottom" constant="-11" id="sxO-Ia-RPV"/>
+                            <constraint firstItem="csN-Zc-bgV" firstAttribute="trailing" secondItem="VEH-Pv-9ZM" secondAttribute="trailing" id="VdZ-Rx-4II"/>
+                            <constraint firstItem="csN-Zc-bgV" firstAttribute="trailing" secondItem="Y6S-HE-tUI" secondAttribute="trailing" id="dJz-sy-Z06"/>
+                            <constraint firstItem="VEH-Pv-9ZM" firstAttribute="bottom" secondItem="Y6S-HE-tUI" secondAttribute="bottom" id="szY-Df-NBz"/>
+                            <constraint firstItem="VEH-Pv-9ZM" firstAttribute="top" secondItem="Y6S-HE-tUI" secondAttribute="top" id="tVk-SK-JeY"/>
+                            <constraint firstItem="csN-Zc-bgV" firstAttribute="bottom" secondItem="VEH-Pv-9ZM" secondAttribute="bottom" id="tXw-uK-e4w"/>
+                            <constraint firstItem="csN-Zc-bgV" firstAttribute="bottom" secondItem="Y6S-HE-tUI" secondAttribute="bottom" id="uEf-iV-Fit"/>
                             <constraint firstItem="VEH-Pv-9ZM" firstAttribute="top" secondItem="Y6S-HE-tUI" secondAttribute="top" id="uhw-IJ-NOE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Y6S-HE-tUI"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="VEH-Pv-9ZM" id="4PQ-Pe-a8L"/>
-                        <outlet property="viewLabel" destination="hr2-pH-UFT" id="D9F-V8-Aj5"/>
+                        <outlet property="viewLabel" destination="HhU-km-QSj" id="EDH-T5-QOw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tNS-h9-GaH" userLabel="First Responder" sceneMemberID="firstResponder"/>

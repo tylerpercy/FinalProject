@@ -33,8 +33,26 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
         collectionView.dataSource = photoDataSource
         collectionView.delegate = self
         
-        store.fetchInterestingPhotos { (photosResult) in
-            self.updateDataSource()
+        let segmentedControl = UISegmentedControl(items: ["Interesting", "Recent"])
+        segmentedControl.addTarget(self, action: #selector(selectMethod(_:)), for: .valueChanged)
+        navigationItem.titleView = segmentedControl
+        self.updateDataSource()
+    }
+    
+    //Bulk of Chapter 20 Silver
+    @objc func selectMethod(_ sender: UISegmentedControl) {
+        
+        let method = sender.selectedSegmentIndex == 1 ? Method.recentPhotos : .interestingPhotos
+        
+        store.fetchSelectedPhotos(for: method) { (photosResult) -> Void in
+            
+            switch photosResult {
+            case let .success(photos):
+                print("Successfully found \(photos.count) photos.")
+                self.updateDataSource()
+            case let .failure(error):
+                print("Error fetching photos: \(error)")
+            }
         }
     }
     

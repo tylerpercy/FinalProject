@@ -31,6 +31,7 @@ enum TagResult {
 class PhotoStore {
     
     let imageStore = ImageStore()
+    var showInterestingPhotos = true //recent = false
     
     let persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Photorama")
@@ -112,8 +113,8 @@ class PhotoStore {
         return .success(image)
     }
     
-    func fetchInterestingPhotos(completion: @escaping (PhotosResult) -> Void) {
-        let url = FlickrAPI.interestingPhotosURL
+    func fetchSelectedPhotos(for method: Method, completion: @escaping (PhotosResult) -> Void) {
+        let url = FlickrAPI.photosURL(for: method)
         let request = URLRequest(url: url)
         
         let task = session.dataTask(with: request) { (data, response, error) in
