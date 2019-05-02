@@ -117,11 +117,12 @@ class PhotoStore {
         let request = URLRequest(url: url)
         
         let task = session.dataTask(with: request) { (data, response, error) in
+            
             if let response = response as? HTTPURLResponse {
                 print("Status Code: \(response.statusCode)")
                 
                 for field in response.allHeaderFields {
-                    print("\(field.key): \(field.value)")
+                    print("Header Fields:\(field.key): \(field.value)")
                 }
             }
             
