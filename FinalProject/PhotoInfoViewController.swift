@@ -41,6 +41,7 @@ class PhotoInfoViewController: UIViewController {
                 print("Error fetching image for photo: \(error)")
             }
         }
+        
         viewLabel.setTitle("Views: \(photo.views)", for: .normal)
         store.saveIfNeeded()
     }

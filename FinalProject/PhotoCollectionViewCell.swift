@@ -13,6 +13,9 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var spinner: UIActivityIndicatorView!
     
+    //Precondition:
+    //Postcondition: Spinner will spin and stop spinning. Will also display images
+    //This function will control the spinner and displaying images
     func update(with image: UIImage?) {
         if let imageToDisplay = image {
             spinner.stopAnimating()

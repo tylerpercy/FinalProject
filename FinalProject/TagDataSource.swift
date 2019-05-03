@@ -15,11 +15,13 @@ class TagDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 1 {
-            return 1      // The Favorite "Tag"
+            return 1      //The favorite tag
         }
         return tags.count
     }
     
+    //Function that creates a section for favoriting a photo that is separate from the rest of the tags
+    //PART OF FAVORITES CHALLENGE - A LEVEL
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         

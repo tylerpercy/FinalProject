@@ -22,6 +22,9 @@ class TagsViewController: UITableViewController {
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
+    //Precondition: The button is tapped to add a new tag
+    //Postcondition: A new tag will be added based on what the user inputs
+    //This function creates a tag for a photo
     @IBAction func addNewTag(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "Add Tag", message: nil, preferredStyle: .alert)
         
@@ -54,6 +57,9 @@ class TagsViewController: UITableViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    //Precondition: make or assign a new tag
+    //Postcondition: The tag list will be updated
+    //This function refreshes the tags if they have been changed in some way.
     func updateTags() {
         store.fetchAllTags { (tagsResult) in
             switch tagsResult {
@@ -88,6 +94,9 @@ class TagsViewController: UITableViewController {
 
 extension TagsViewController {
     
+    //Precondition: The tag button must be clicked and the view must be photoInfoViewController
+    //Postcondition: The table will be created, displaying tags and a favorite tag
+    //This function creates the table that the tags will be listed in.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             photo.isFavorite = !photo.isFavorite
@@ -115,6 +124,9 @@ extension TagsViewController {
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
+    //Precondition: The tag button must be clicked and the view must be photoInfoViewController
+    //Postcondition: The checkmarks will be toggable
+    //This function makes a checkmark box that can be checked or unchecked
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             cell.accessoryType = photo.isFavorite ? .checkmark : .none

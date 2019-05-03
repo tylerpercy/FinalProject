@@ -48,6 +48,9 @@ class PhotoStore {
         return URLSession(configuration: config)
     }()
     
+    //Precondition: The photo must have a photoID and URL
+    //Postconditon: The photo will be fetched and ready to be displayed
+    //This function fetches the image, but if there are errors it will print to the console.
     func fetchImage(for photo: Photo, completion: @escaping (ImageResult) -> Void) {
         guard let photoKey = photo.photoID else {
             preconditionFailure("Photo expected to have a photoID")
@@ -83,6 +86,9 @@ class PhotoStore {
         task.resume()
     }
     
+    //Precondition: app is populated with photos that may or may not be tagged
+    //Postcondition: the tags will be fetched and ready to be displayed
+    //This function fetches all the tags on photos and displays them
     func fetchAllTags(completion: @escaping (TagResult) -> Void) {
         let fetchRequest: NSFetchRequest<Tag> = Tag.fetchRequest()
         let sortByName = NSSortDescriptor(key: "\(#keyPath(Tag.name))", ascending: true)
@@ -100,6 +106,9 @@ class PhotoStore {
         }
     }
     
+    //Precondition: User clicks on the image
+    //Postcondition: The photo will either be able to open or not be able to be opened
+    //This function checks that the photo can be opened and displayed
     private func processImageRequest(data: Data?, error: Error?) -> ImageResult {
         guard let imageData = data,
             let image = UIImage(data: imageData) else {
@@ -113,6 +122,9 @@ class PhotoStore {
         return .success(image)
     }
     
+    //Precondition: The user selects photos
+    //Postcondition: Gets the photos that the users selected based on method
+    //This function will get the photos based on the method that the user has selected
     func fetchSelectedPhotos(for method: Method, completion: @escaping (PhotosResult) -> Void) {
         let url = FlickrAPI.photosURL(for: method)
         let request = URLRequest(url: url)
@@ -138,6 +150,9 @@ class PhotoStore {
         task.resume()
     }
     
+    //Precondition: Have favorite photos, it will work without them, but the field will be blank
+    //Postcondition: The favorite photos will be fetched and displayed
+    // This function moves to the favorites tab and displays the photos that are favorited
     func fetchFavoritePhotos(completion: @escaping (PhotosResult) -> Void) {
         let fetchRequest: NSFetchRequest = Photo.fetchRequest()
         let sortByDateTaken = NSSortDescriptor(key: #keyPath(Photo.photoID), ascending: true)
@@ -175,7 +190,9 @@ class PhotoStore {
     }
     
     
-    
+    //Precondition: The data for a photo has been requested
+    //Postcondition: The data will be sent or it will fail and print to the console
+    //This function returns the data of the photo
     private func processPhotoRequest(data: Data?, error: Error?, completion: @escaping (PhotosResult) -> Void) {
         guard let jsonData = data else {
             completion(.failure(error!))

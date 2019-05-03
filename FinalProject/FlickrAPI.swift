@@ -29,6 +29,9 @@ struct FlickrAPI {
         return formatter
     }()
     
+    //Precondition: Flickr is functioning
+    //Postcondition: images will have json parameters
+    // This function will set parameters with the apikey and json formats
     static func flickrURL(method: Method, parameters: [String: String]?) -> URL {
         var components = URLComponents(string: baseURLString)!
         
@@ -50,7 +53,9 @@ struct FlickrAPI {
         
         return components.url!
     }
-    
+    //Precondition: Flickr is functioning and flickrURL has run
+    //Postcondition: returning the photourl
+    //This function gets the photo url of the image from flickr
     static func photosURL(for method: Method) -> URL {
         return FlickrAPI.flickrURL(method: method, parameters: ["extras": "url_h,date_taken"])
     }
@@ -83,7 +88,9 @@ struct FlickrAPI {
             return .failure(error)
         }
     }
-    
+    //Precondition: called in func photos
+    //Postcondition: returns nil or the photo with new vars attached to it
+    // The function attaches varaibles to the photos added to thse array in func photos
     private static func photo(fromJSON json: [String: Any], into context: NSManagedObjectContext) -> Photo? {
         guard let photoID = json["id"] as? String,
             let title = json["title"] as? String,
