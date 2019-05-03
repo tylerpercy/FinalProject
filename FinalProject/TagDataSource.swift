@@ -14,15 +14,32 @@ class TagDataSource: NSObject, UITableViewDataSource {
     var tags = [Tag]()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 1 {
+            return 1      // The Favorite "Tag"
+        }
         return tags.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        
+        if indexPath.section == 1 {
+            cell.textLabel?.text = "Favorite"
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+            return cell
+        }
+        
         let tag = tags[indexPath.row]
-        
         cell.textLabel?.text = tag.name
-        
         return cell
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 1 ? " " : nil
+    }
 }
+

@@ -14,16 +14,28 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
     var store: PhotoStore!
     let photoDataSource = PhotoDataSource()
     
-    private func updateDataSource() {
-        store.fetchAllPhotos { (photosResult) in
-            switch photosResult {
-            case let .success(photos):
-                self.photoDataSource.photos = photos
-            case .failure:
-                self.photoDataSource.photos.removeAll()
+    private func updateDataSource(getFavorite: Bool) {
+        if getFavorite {
+            store.fetchFavoritePhotos { (photosResult) in
+                switch photosResult {
+                case let .success(photos):
+                    self.photoDataSource.photos = photos
+                case .failure:
+                    self.photoDataSource.photos.removeAll()
+                }
+                self.collectionView.reloadSections(IndexSet(integer: 0))
             }
-            
-            self.collectionView.reloadSections(IndexSet(integer: 0))
+        } else {
+            store.fetchAllPhotos { (photosResult) in
+                switch photosResult {
+                case let .success(photos):
+                    self.photoDataSource.photos = photos
+                case .failure:
+                    self.photoDataSource.photos.removeAll()
+                }
+                
+                self.collectionView.reloadSections(IndexSet(integer: 0))
+            }
         }
     }
     
@@ -33,27 +45,40 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
         collectionView.dataSource = photoDataSource
         collectionView.delegate = self
         
-        let segmentedControl = UISegmentedControl(items: ["Interesting", "Recent"])
+        let segmentedControl = UISegmentedControl(items: ["Interesting", "Recent", "Favorite"])
         segmentedControl.addTarget(self, action: #selector(selectMethod(_:)), for: .valueChanged)
         navigationItem.titleView = segmentedControl
-        self.updateDataSource()
+        self.updateDataSource(getFavorite: false)
     }
     
     //Bulk of Chapter 20 Silver
     @objc func selectMethod(_ sender: UISegmentedControl) {
+        sender.isEnabled = false
+        var method: Method
+        switch sender.selectedSegmentIndex {
+        case 0:
+            method = .interestingPhotos
+        case 1:
+            method = .recentPhotos
+        default:
+            updateDataSource(getFavorite: true)
+            sender.isEnabled = true
+            return
+        }
         
-        let method = sender.selectedSegmentIndex == 1 ? Method.recentPhotos : .interestingPhotos
-        
+        //updateDataSource(getFavorite: false)
+
         store.fetchSelectedPhotos(for: method) { (photosResult) -> Void in
-            
+            self.updateDataSource(getFavorite: false)
             switch photosResult {
             case let .success(photos):
                 print("Successfully found \(photos.count) photos.")
-                self.updateDataSource()
+                self.updateDataSource(getFavorite: false)
             case let .failure(error):
                 print("Error fetching photos: \(error)")
             }
         }
+        sender.isEnabled = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

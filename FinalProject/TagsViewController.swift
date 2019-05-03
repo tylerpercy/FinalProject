@@ -89,6 +89,13 @@ class TagsViewController: UITableViewController {
 extension TagsViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            photo.isFavorite = !photo.isFavorite
+            try? store.persistentContainer.viewContext.save()
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+            return
+        }
+        
         let tag = tagDataSource.tags[indexPath.row]
         
         if let index = selectedIndexPaths.index(of: indexPath) {
@@ -109,6 +116,10 @@ extension TagsViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            cell.accessoryType = photo.isFavorite ? .checkmark : .none
+            return
+        }
         if selectedIndexPaths.index(of: indexPath) != nil {
             cell.accessoryType = .checkmark
         } else {

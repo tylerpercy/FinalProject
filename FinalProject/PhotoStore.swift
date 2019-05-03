@@ -138,6 +138,25 @@ class PhotoStore {
         task.resume()
     }
     
+    func fetchFavoritePhotos(completion: @escaping (PhotosResult) -> Void) {
+        let fetchRequest: NSFetchRequest = Photo.fetchRequest()
+        let sortByDateTaken = NSSortDescriptor(key: #keyPath(Photo.photoID), ascending: true)
+        fetchRequest.sortDescriptors = [sortByDateTaken]
+        
+        let predicate = NSPredicate(format: "(%K == TRUE)", #keyPath(Photo.isFavorite))
+        fetchRequest.predicate = predicate
+        
+        let viewContext = persistentContainer.viewContext
+        viewContext.perform {
+            do {
+                let favoritePhotos = try viewContext.fetch(fetchRequest)
+                completion(.success(favoritePhotos))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+    }
+    
     func fetchAllPhotos(completion: @escaping (PhotosResult) -> Void) {
         let fetchRequest: NSFetchRequest = Photo.fetchRequest()
         let sortByDateTaken = NSSortDescriptor(key: "\(#keyPath(Photo.photoID))", ascending: true)
