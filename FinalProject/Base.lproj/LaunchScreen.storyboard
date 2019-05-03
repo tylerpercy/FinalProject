@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,13 +17,51 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dsa" translatesAutoresizingMaskIntoConstraints="NO" id="KzT-rL-GXa">
+                                <rect key="frame" x="0.0" y="123" width="380" height="500"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FINAL PROJECT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMs-yc-W8V">
+                                <rect key="frame" x="100" y="63" width="182" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="p3o-hX-NkK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tyler Percy &amp; Logan Mayo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7em-jG-dB8">
+                                <rect key="frame" x="92" y="631" width="198" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="GJw-Nz-G2N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96464389129999994" green="0.75376007099999998" blue="0.99989880180000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="7em-jG-dB8" firstAttribute="top" secondItem="KzT-rL-GXa" secondAttribute="bottom" constant="8" symbolic="YES" id="5nR-mJ-VgP"/>
+                            <constraint firstItem="KzT-rL-GXa" firstAttribute="top" secondItem="OMs-yc-W8V" secondAttribute="bottom" constant="31" id="7e9-PA-UA9"/>
+                            <constraint firstItem="OMs-yc-W8V" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="43" id="A6o-ZI-z17"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7em-jG-dB8" secondAttribute="bottom" constant="15" id="DYg-gV-3qc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OMs-yc-W8V" secondAttribute="trailing" constant="93" id="IGH-Ig-8Ts"/>
+                            <constraint firstItem="OMs-yc-W8V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="ILz-XF-bnp"/>
+                            <constraint firstItem="KzT-rL-GXa" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="ItN-Db-9yj"/>
+                            <constraint firstItem="7em-jG-dB8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="92" id="SrR-l1-vHn"/>
+                            <constraint firstItem="OMs-yc-W8V" firstAttribute="centerX" secondItem="7em-jG-dB8" secondAttribute="centerX" id="U9u-Ee-gOb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KzT-rL-GXa" secondAttribute="trailing" constant="-21" id="Yg7-HD-4LT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dsa" width="1155" height="1500"/>
+    </resources>
 </document>

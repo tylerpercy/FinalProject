@@ -20,8 +20,10 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
                 switch photosResult {
                 case let .success(photos):
                     self.photoDataSource.photos = photos
+                    print("Successfully found \(photos.count) photos.")
                 case .failure:
                     self.photoDataSource.photos.removeAll()
+                    print("Error fetching photos.")
                 }
                 self.collectionView.reloadSections(IndexSet(integer: 0))
             }
@@ -65,8 +67,6 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
             sender.isEnabled = true
             return
         }
-        
-        //updateDataSource(getFavorite: false)
 
         store.fetchSelectedPhotos(for: method) { (photosResult) -> Void in
             self.updateDataSource(getFavorite: false)
